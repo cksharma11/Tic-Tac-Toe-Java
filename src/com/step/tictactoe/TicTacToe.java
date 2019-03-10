@@ -19,7 +19,7 @@ public class TicTacToe {
 
         Board gameBoard = new Board();
         Player player1 = new Player("chandan", "O");
-        Player player2 = new Player("chandan", "X");
+        Player player2 = new Player("shubham", "X");
         {
             gameBoard.placeSymbol(2, "O");
             player2.saveMove(2);
