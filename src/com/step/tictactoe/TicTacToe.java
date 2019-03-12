@@ -8,14 +8,14 @@ public class TicTacToe {
     private static List<List> winningCombinations = new ArrayList<>(8);
 
     public static void main(String[] args) {
-        winningCombinations.add(Arrays.asList(1,2,3));
-        winningCombinations.add(Arrays.asList(4,5,6));
-        winningCombinations.add(Arrays.asList(7,8,9));
-        winningCombinations.add(Arrays.asList(1,4,7));
-        winningCombinations.add(Arrays.asList(2,5,8));
-        winningCombinations.add(Arrays.asList(3,6,9));
-        winningCombinations.add(Arrays.asList(1,5,9));
-        winningCombinations.add(Arrays.asList(3,5,7));
+        winningCombinations.add(Arrays.asList(1, 2, 3));
+        winningCombinations.add(Arrays.asList(4, 5, 6));
+        winningCombinations.add(Arrays.asList(7, 8, 9));
+        winningCombinations.add(Arrays.asList(1, 4, 7));
+        winningCombinations.add(Arrays.asList(2, 5, 8));
+        winningCombinations.add(Arrays.asList(3, 6, 9));
+        winningCombinations.add(Arrays.asList(1, 5, 9));
+        winningCombinations.add(Arrays.asList(3, 5, 7));
 
         Board gameBoard = new Board();
         Player player1 = new Player("chandan", "O");
@@ -46,11 +46,11 @@ public class TicTacToe {
 
 
         boolean hasWon = hasWon(winningCombinations, player1.getMoves());
-        System.out.println("Has anybody won : "+ hasWon);
+        System.out.println("Has anybody won : " + hasWon);
     }
 
-    public static boolean hasWon(List<List> winningCombinations, List<Integer> playerMoves){
-        return winningCombinations.stream().anyMatch(combination->combination.equals(playerMoves));
+    public static boolean hasWon(List<List> winningCombinations, List<Integer> playerMoves) {
+        return winningCombinations.stream().anyMatch(combination -> combination.stream().allMatch(move -> playerMoves.contains(move)));
     }
 
 }
